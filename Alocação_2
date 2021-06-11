@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+  
+    // declarando o número de linhas (n) e colunas (m) e a matriz (**mat)
+    int n, m;
+    float valores, **mat, soma;
+    //recebendo n e m
+    puts("Informe o número de linhas da matriz:");
+    scanf("%d", &n);
+    puts("Informe o número de colunas da matriz:");
+    scanf("%d", &m);
+    //alocando a matriz
+    mat = (float* *)malloc(sizeof(float*)*n);
+    // testando e alocando a matriz em forma de loop (colunas)
+    if(mat == NULL){
+      printf("Erro ao alocar!");
+    } else{
+      for(int i = 0;i < n; i++){
+        mat[i] = (float *)malloc(sizeof(float*)*m);
+        if(mat[i] == NULL){
+          printf("erro ao alocar!");
+        }
+
+      }
+    //lendo os valores da matriz
+    for(int i = 0;i<n;i++){
+      for(int j = 0; j< m;j++){
+        printf("Informe o valor da linha %d e coluna %d:\n",i, j);
+        scanf("%f", &valores);
+        mat[i][j] = valores;
+      }
+    }
+
+    // mostrando a soma dos elementos da diagonal principal:
+    for(int i = 0;i<n;i++){
+      for(int j = 0; j< m;j++){
+        if(i == j){
+          soma += mat[i][j];
+        }
+
+      }
+
+    }
+  }
+  // printando a soma
+  printf("A soma dos elementos da diagonal principal da matriz é %.2f",soma);
+
+}
