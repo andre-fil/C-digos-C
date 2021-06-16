@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int *TranspostadeMat ( int * vma, int n, int m){
+  int *vtrans,k,l;
+  vtrans = (int*)malloc(sizeof(int)*n*m);
+  if(vtrans == NULL){
+    return 0;
+  }else{
+    for(int i = 0;i < n; i++){
+      for(int j = 0;j<m;j++){
+        k = j*n+i;
+        l = i*m + j;
+        vtrans[k] = vma[l];
+      }
+    }
+  }
+  return vtrans;
+
+}
+
+int main(){
+   int n, m, *vmata, k, *vresult;
+  scanf("%d", &n);
+  scanf("%d", &m);
+
+  vmata = (int*)malloc(sizeof(int)*n*m);
+  vresult = (int*)malloc(sizeof(int)* n*m);
+  if(vmata == NULL ||  vresult== NULL){
+    printf("Erro ao alocar!");
+    return -1;
+  }else{
+    //o k é a representação linear de vmat[i][j]
+    for(int i = 0; i < n; i++){
+      for(int j = 0; j <m;j++){
+        k = i*m+j;
+        
+      }
+}
+
+vresult = TranspostadeMat(vmata,n,m);
+for(int i = 0; i < n;i++){
+  for(int j = 0;j < m;j++){
+    k = i*m+j;
+    printf("%d-",vresult[k]);
+  }
+}
+
+}
+}
+
