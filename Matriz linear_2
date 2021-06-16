@@ -1,0 +1,14 @@
+int SomaDosElementosDalinhaL(int * vma, int n, int m, int l){
+int k, soma;
+
+for(int i=0;i < n;i++){
+  for(int j = 0; j < m;j++){
+    k = i*m+j;
+    if(i==l){
+    soma += vma[k];
+  }
+}
+}
+return soma;
+free(vma);
+}
